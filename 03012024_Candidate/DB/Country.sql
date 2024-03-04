@@ -1,0 +1,24 @@
+USE [myCompany]
+GO
+
+/****** Object:  Table [dbo].[Country]    Script Date: 2/26/2024 2:14:29 PM ******/
+SET ANSI_NULLS ON
+GO
+
+IF OBJECT_ID(N'dbo.Country',N'U') IS NOT NULL
+DROP TABLE [dbo].[Country]
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Country](
+	[ContryId] [int] IDENTITY(1,1) NOT NULL,
+	[Country] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Country] PRIMARY KEY CLUSTERED 
+(
+	[ContryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+

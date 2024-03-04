@@ -1,0 +1,55 @@
+﻿@model PaginatedList<Employee>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Pagination with Html";
+}
+<div class="text-center">
+    <p>Using pagination with HTML.</p>
+</div>
+
+
+<div>
+
+    <table class="table table-striped">
+        <thead>
+            @using (Html.BeginForm("Index", "Employee", FormMethod.Get))
+            {
+                <tr>
+
+                    <th>@Html.ActionLink("EmployeeId", "Index", new { SortOrder = ViewBag.EmployeeId })</th>
+                    <th>@Html.ActionLink("FirstName", "Index", new { SortOrder = ViewBag.FirstName })</th>
+                    <th>@Html.ActionLink("LastName", "Index", new { SortOrder = ViewBag.LastName })</th>
+                    <th>@Html.ActionLink("Address", "Index", new { SortOrder = ViewBag.Address })</th>
+                    <th>@Html.ActionLink("City", "Index", new { SortOrder = ViewBag.City })</th>
+
+
+                </tr>
+            }
+
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelitem => item.EmployeeId)</td>
+                    <td>@Html.DisplayFor(modelitem => item.FirstName)</td>
+                    <td>@Html.DisplayFor(modelitem => item.LastName)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelitem => item.City)</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+    }
+
+    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
+    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
+</div>

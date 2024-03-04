@@ -1,0 +1,52 @@
+﻿@model List<Employee>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using NonFactors.Mvc.Grid
+@{
+    ViewData["Title"] = "Using NonFactors MVC Grid";
+}
+
+<div class="text-center">
+    <p>Using pagination with NonFactors MVC Grid.</p>
+</div>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="table table-striped">
+
+        @(
+            Html.Grid(Model).Build(columns =>
+            {
+                columns.Add(model => model.EmployeeId).Titled("Employee ID");
+                columns.Add(model => model.FirstName).Titled("First Name");
+                columns.Add(model => model.LastName).Titled("Last Name");
+                columns.Add(model => model.Address).Titled("Address");
+                columns.Add(model => model.City).Titled("City");
+                columns.Add(model => model.State).Titled("State");
+                columns.Add(model => model.Country).Titled("Country");
+                columns.Add(model => model.JobTitle.JobTitle1).Titled("JobTitle");
+                columns.Add(model => model.Department.Department1).Titled("Department");
+                columns.Add(model => model.Manager.ManagerFirstName).Titled("ManagerFirstName");
+                columns.Add(model => model.Manager.ManagerLastName).Titled("ManagerLastName");
+
+            })
+            .Using(GridFilterMode.Row)
+            .Sortable()
+            .Pageable(pager =>
+            { //pager.PageSizes = new Dictionary<Int32, String> { { 0, "All" }, { 5, "5" }, { 10, "10" }, { 50, "50" } };
+                pager.ShowPageSizes = true;
+                pager.PagesToDisplay = 5;
+                pager.CurrentPage = 1;
+                pager.RowsPerPage = 20;
+                pager.TotalRows = 20;
+            })
+            )
+    </div>
+
+</body>
+</html>

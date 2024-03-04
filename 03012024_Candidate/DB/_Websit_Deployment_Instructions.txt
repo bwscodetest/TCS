@@ -1,0 +1,10 @@
+
+1.Open IIS as  Administrtor
+2.Create Site (name as TCSDemoProject)
+3.Create Virtual dir with same name as above
+4.Enable Anonymous Athentication
+5.Using visualstudio as Admin Publish the site(select webserver IIS using web deploy)
+  update
+	select Server,Site Name and URL
+  Wecan cretae web deploy package to manually copy the files
+6.Restart app pool

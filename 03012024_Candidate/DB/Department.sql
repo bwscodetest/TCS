@@ -1,0 +1,26 @@
+USE [myCompany]
+GO
+
+/****** Object:  Table [dbo].[Department]    Script Date: 2/26/2024 2:11:17 PM ******/
+SET ANSI_NULLS ON
+GO
+
+
+IF OBJECT_ID(N'dbo.Department',N'U') IS NOT NULL
+DROP TABLE [dbo].[Department]
+GO
+
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Department](
+	[DepartmentId] [int] IDENTITY(1,1) NOT NULL,
+	[Department] varchar(50) NOT NULL,
+ CONSTRAINT [PK_Title] PRIMARY KEY CLUSTERED 
+(
+	[JobTitleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
