@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace TCS_DemoProject.Models;
+namespace NonFactorGrid.Models;
 
 public partial class MyCompanyContext : DbContext
 {
@@ -27,8 +27,8 @@ public partial class MyCompanyContext : DbContext
 
     public virtual DbSet<State> States { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
-
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

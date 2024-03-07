@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TCS_DemoProject.Models;
+namespace NonFactorGrid.Models;
 
 public partial class Country
 {

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TCS_DemoProject.Models;
+using NonFactorGrid.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

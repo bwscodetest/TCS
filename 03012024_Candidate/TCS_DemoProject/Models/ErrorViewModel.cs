@@ -1,4 +1,4 @@
-namespace TCS_DemoProject.Models
+namespace NonFactorGrid.Models
 {
     public class ErrorViewModel
     {

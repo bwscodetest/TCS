@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-namespace TCS_DemoProject.Models
+namespace NonFactorGrid.Models
 {
     public class PaginatedList<T> : List<T>
     {

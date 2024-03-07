@@ -2,10 +2,10 @@
 @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
-    ViewData["Title"] = "Pagination with Html";
+    ViewData["Title"] = "Html";
 }
 <div class="text-center">
-    <p>Using pagination with HTML.</p>
+    <p>Using HTML Grid.</p>
 </div>
 
 
@@ -17,12 +17,18 @@
             {
                 <tr>
 
-                    <th>@Html.ActionLink("EmployeeId", "Index", new { SortOrder = ViewBag.EmployeeId })</th>
-                    <th>@Html.ActionLink("FirstName", "Index", new { SortOrder = ViewBag.FirstName })</th>
-                    <th>@Html.ActionLink("LastName", "Index", new { SortOrder = ViewBag.LastName })</th>
-                    <th>@Html.ActionLink("Address", "Index", new { SortOrder = ViewBag.Address })</th>
-                    <th>@Html.ActionLink("City", "Index", new { SortOrder = ViewBag.City })</th>
+                    <th>@Html.ActionLink("EmployeeId", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.EmployeeId }) </th>
+                    <th>@Html.ActionLink("FirstName", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.FirstName })</th>
+                    <th>@Html.ActionLink("LastName", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.LastName })</th>
+                    <th>@Html.ActionLink("Address", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.Address })</th>
+                    <th>@Html.ActionLink("City", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.City })</th>
+                    <th>@Html.ActionLink("State", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.State })</th>
+                    <th>@Html.ActionLink("Country", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.Country })</th>
+                    <th>@Html.ActionLink("JobTitle", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.JobTitle })</th>
 
+                    <th>@Html.ActionLink("Department", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.Department })</th>
+                    <th>@Html.ActionLink("ManagerFirstName", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.ManagerFirstName })</th>
+                    <th>@Html.ActionLink("ManagerLastName", "Index", new { pageNumber = ViewBag.PageNumber, SortOrder = ViewBag.ManagerLastName })</th>
 
                 </tr>
             }
@@ -38,7 +44,12 @@
                     <td>@Html.DisplayFor(modelitem => item.LastName)</td>
                     <td>@Html.DisplayFor(modelitem => item.Address)</td>
                     <td>@Html.DisplayFor(modelitem => item.City)</td>
-
+                    <td>@Html.DisplayFor(modelitem => item.State)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Country)</td>
+                    <td>@Html.DisplayFor(modelitem => item.JobTitle.JobTitle1)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Department.Department1)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Manager.ManagerFirstName)</td>
+                    <td>@Html.DisplayFor(modelitem => item.Manager.ManagerLastName)</td>
                 </tr>
             }
         </tbody>
@@ -50,6 +61,6 @@
 
     }
 
-    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
-    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
+    <a asp-action="Index" asp-route-pageNumber="@(ViewBag.PageNumber-1)" class="btn btn-default @prevDisabled">Previous</a>
+    <a asp-action="Index" asp-route-pageNumber="@(ViewBag.PageNumber+1)" class="btn btn-default @nextDisabled">Next</a>
 </div>
